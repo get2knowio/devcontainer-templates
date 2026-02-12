@@ -1,0 +1,10 @@
+{
+    "id": "node-agentic",
+    "version": "1.0.0",
+    "name": "Node.js Agentic Development",
+    "description": "Node.js/TypeScript development environment with AI coding assistants, modern CLI tools, and Bun.",
+    "documentationURL": "https://github.com/get2knowio/devcontainer-templates/tree/main/src/node-agentic",
+    "licenseURL": "https://github.com/get2knowio/devcontainer-templates/blob/main/LICENSE",
+    "options": {},
+    "platforms": ["Any"]
+}

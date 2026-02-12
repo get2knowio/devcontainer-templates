@@ -1,0 +1,29 @@
+{
+    "name": "Node.js Agentic Development",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "22"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "version": "latest",
+            "enableNonRootDocker": "true"
+        },
+        "ghcr.io/devcontainers/features/aws-cli:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {},
+        "ghcr.io/devcontainers-extra/features/starship:1": {},
+        "ghcr.io/get2knowio/devcontainer-features/ai-clis:1": {},
+        "ghcr.io/get2knowio/devcontainer-features/modern-cli-tools:1": {},
+        "ghcr.io/get2knowio/devcontainer-features/node-dev-tools:1": {},
+        "ghcr.io/get2knowio/devcontainer-features/github-actions-tools:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            }
+        }
+    },
+    "postCreateCommand": "node --version && tsc --version"
+}

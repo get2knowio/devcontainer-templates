@@ -1,0 +1,39 @@
+name: "Test Dev Container Templates"
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "test/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "test/**"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        template:
+          - full-stack
+          - rust-agentic
+          - node-agentic
+          - python-agentic
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install DevContainer CLI
+        run: npm install -g @devcontainers/cli
+
+      - name: Test template
+        run: devcontainer templates test --template ${{ matrix.template }} .
