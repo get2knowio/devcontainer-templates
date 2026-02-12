@@ -42,9 +42,7 @@ Every feature can be customized by passing options in your `devcontainer.json`. 
   "features": {
     // Only install the AI CLIs you actually use
     "ghcr.io/get2knowio/devcontainer-features/ai-clis:1": {
-      "installMode": "selected",
-      "claudeCode": true,
-      "geminiCli": true
+      "install": "claudeCode,geminiCli"
     }
   }
 }
@@ -58,7 +56,7 @@ Every feature can be customized by passing options in your `devcontainer.json`. 
 
 | Option | Description | Type | Default |
 |--------|-------------|------|---------|
-| `installMode` | `"all"` installs every CLI unless explicitly disabled; `"selected"` installs only CLIs explicitly set to true | string | `all` |
+| `install` | Comma-separated list of CLIs to install (e.g. `"claudeCode,geminiCli"`). When set, only the listed CLIs are installed. When empty, all CLIs are installed. | string | `""` |
 | `claudeCode` | Install Claude Code CLI | boolean | `true` |
 | `geminiCli` | Install Google Gemini CLI | boolean | `true` |
 | `codex` | Install OpenAI Codex CLI | boolean | `true` |
