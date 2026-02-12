@@ -5,7 +5,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
   packages: write
 
 jobs:
@@ -15,21 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Publish and generate docs
+      - name: Publish templates
         uses: devcontainers/action@v1
         with:
           publish-templates: "true"
           base-path-to-templates: "./src"
-          generate-docs: "true"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create PR for generated docs
-        uses: peter-evans/create-pull-request@v7
-        with:
-          commit-message: "docs: auto-update template documentation"
-          title: "docs: auto-update template documentation"
-          body: |
-            Auto-generated documentation update from template release.
-          branch: docs/auto-update
-          base: main
