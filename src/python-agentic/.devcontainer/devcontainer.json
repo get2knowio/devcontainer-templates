@@ -14,10 +14,14 @@
         "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {},
         "ghcr.io/devcontainers-extra/features/starship:1": {},
-        "ghcr.io/get2knowio/devcontainer-features/ai-clis:1": {},
-        "ghcr.io/get2knowio/devcontainer-features/modern-cli-tools:1": {},
-        "ghcr.io/get2knowio/devcontainer-features/python-tools:1": {},
-        "ghcr.io/get2knowio/devcontainer-features/github-actions-tools:1": {}
+        "ghcr.io/get2knowio/devcontainer-features/ai-clis:2": {},
+        // install/omit: claudeCode, geminiCli, codex, copilot, openCode, codeRabbit, beads, specifyCli
+        "ghcr.io/get2knowio/devcontainer-features/modern-cli-tools:2": {},
+        // install/omit: bat, ripgrep, fd, fzf, eza, zoxide, neovim, tmux, lazygit, astGrep, jujutsu, zellij
+        "ghcr.io/get2knowio/devcontainer-features/python-tools:2": {},
+        // install/omit: uv, poetry, ruff, mypy
+        "ghcr.io/get2knowio/devcontainer-features/github-actions-tools:2": {}
+        // install/omit: act, actionlint
     },
     "customizations": {
         "vscode": {

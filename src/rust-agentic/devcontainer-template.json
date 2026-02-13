@@ -1,6 +1,6 @@
 {
     "id": "rust-agentic",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "name": "Rust Agentic Development",
     "description": "Rust development environment with AI coding assistants, modern CLI tools, and cargo extras.",
     "documentationURL": "https://github.com/get2knowio/devcontainer-templates/tree/main/src/rust-agentic",

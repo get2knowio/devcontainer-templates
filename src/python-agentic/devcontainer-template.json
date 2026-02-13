@@ -1,6 +1,6 @@
 {
     "id": "python-agentic",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "name": "Python Agentic Development",
     "description": "Python development environment with AI coding assistants, modern CLI tools, Poetry, and uv.",
     "documentationURL": "https://github.com/get2knowio/devcontainer-templates/tree/main/src/python-agentic",

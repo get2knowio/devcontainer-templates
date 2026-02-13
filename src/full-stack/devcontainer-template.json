@@ -1,6 +1,6 @@
 {
     "id": "full-stack",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "name": "Full-Stack Agentic Development",
     "description": "Complete development environment with Python, Node.js, Rust, AI coding assistants, and modern CLI tools.",
     "documentationURL": "https://github.com/get2knowio/devcontainer-templates/tree/main/src/full-stack",

@@ -24,8 +24,8 @@ All templates share a common base:
 - **GitHub CLI**: PR/issue workflows from the terminal
 - **jq/yq**: JSON and YAML processing
 - **Starship**: Cross-shell prompt
-- **AI CLIs**: Claude Code, Gemini, Codex, Copilot, OpenCode, CodeRabbit
-- **Modern CLI tools**: bat, ripgrep, fd, fzf, eza, zoxide, neovim, tmux, lazygit, ast-grep
+- **AI CLIs**: Claude Code, Gemini, Codex, Copilot, OpenCode, CodeRabbit, Beads, Specify CLI
+- **Modern CLI tools**: bat, ripgrep, fd, fzf, eza, zoxide, neovim, tmux, lazygit, ast-grep, jujutsu, zellij
 - **GitHub Actions tools**: act (local runner), actionlint (workflow linter)
 
 Each template then adds its language-specific stack:
@@ -35,6 +35,17 @@ Each template then adds its language-specific stack:
 | Python + Poetry + uv | x | | | x |
 | Node.js dev tools (TS, bundlers, linters, Bun) | x | | x | |
 | Rust + bacon, cargo-edit, cargo-audit | x | x | | |
+
+## Customizing Features
+
+Every get2knowio feature supports two string options for tool selection:
+
+| Option | Description |
+|--------|-------------|
+| `install` | Comma-separated whitelist — only install the listed tools. When empty (default), all tools are installed. |
+| `omit` | Comma-separated blacklist — exclude the listed tools. Applied after `install` filtering. |
+
+See each template's README for the full list of tool names available per feature.
 
 ## Usage
 

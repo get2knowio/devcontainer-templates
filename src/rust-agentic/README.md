@@ -26,20 +26,29 @@ Rust development environment with AI coding assistants, modern CLI tools, and ca
 | Feature | Description |
 |---------|-------------|
 | [AI CLI Tools](https://github.com/get2knowio/devcontainer-features/tree/main/src/ai-clis) | Claude Code, Gemini CLI, OpenAI Codex, GitHub Copilot, OpenCode, CodeRabbit, Beads, Specify CLI |
-| [Modern CLI Tools](https://github.com/get2knowio/devcontainer-features/tree/main/src/modern-cli-tools) | bat, ripgrep, fd, fzf, eza, zoxide, neovim, tmux, lazygit, ast-grep, jujutsu |
+| [Modern CLI Tools](https://github.com/get2knowio/devcontainer-features/tree/main/src/modern-cli-tools) | bat, ripgrep, fd, fzf, eza, zoxide, neovim, tmux, lazygit, ast-grep, jujutsu, zellij |
 | [Rust Dev Tools](https://github.com/get2knowio/devcontainer-features/tree/main/src/rust-dev-tools) | bacon, cargo-edit, cargo-audit |
 | [GitHub Actions Tools](https://github.com/get2knowio/devcontainer-features/tree/main/src/github-actions-tools) | act (local runner), actionlint (workflow linter) |
 
 ## Customizing features
 
-Every feature can be customized by passing options in your `devcontainer.json`. Override individual tools by adding an `options` object to the feature reference:
+Every get2knowio feature supports two string options for tool selection:
+
+| Option | Description |
+|--------|-------------|
+| `install` | Comma-separated whitelist — only install the listed tools. When empty (default), all tools are installed. |
+| `omit` | Comma-separated blacklist — exclude the listed tools. Applied after `install` filtering. |
 
 ```jsonc
 {
   "features": {
     // Only install the AI CLIs you actually use
-    "ghcr.io/get2knowio/devcontainer-features/ai-clis:1": {
+    "ghcr.io/get2knowio/devcontainer-features/ai-clis:2": {
       "install": "claudeCode,geminiCli"
+    },
+    // Install everything except neovim and tmux
+    "ghcr.io/get2knowio/devcontainer-features/modern-cli-tools:2": {
+      "omit": "neovim,tmux"
     }
   }
 }
@@ -49,64 +58,31 @@ Every feature can be customized by passing options in your `devcontainer.json`. 
 
 ### AI CLI Tools
 
-> These tools can be large — disable any you don't need to speed up container builds.
+> These tools can be large — use `install` or `omit` to skip any you don't need and speed up container builds.
 
-| Option | Description | Type | Default |
-|--------|-------------|------|---------|
-| `install` | Comma-separated list of CLIs to install (e.g. `"claudeCode,geminiCli"`). When set, only the listed CLIs are installed. When empty, all CLIs are installed. | string | `""` |
-| `claudeCode` | Install Claude Code CLI | boolean | `true` |
-| `geminiCli` | Install Google Gemini CLI | boolean | `true` |
-| `codex` | Install OpenAI Codex CLI | boolean | `true` |
-| `copilot` | Install GitHub Copilot CLI | boolean | `true` |
-| `openCode` | Install OpenCode AI CLI | boolean | `true` |
-| `codeRabbit` | Install CodeRabbit CLI | boolean | `true` |
-| `beads` | Install Beads (coding agent memory system) | boolean | `true` |
-| `specifyCli` | Install Specify CLI (spec-driven development toolkit) | boolean | `true` |
+Tools: `claudeCode`, `geminiCli`, `codex`, `copilot`, `openCode`, `codeRabbit`, `beads`, `specifyCli`
 
 [Full details](https://github.com/get2knowio/devcontainer-features/tree/main/src/ai-clis)
 
 ### Modern CLI Tools
 
-| Option | Description | Type | Default |
-|--------|-------------|------|---------|
-| `bat` | Install bat (cat replacement with syntax highlighting) | boolean | `true` |
-| `ripgrep` | Install ripgrep (fast grep replacement) | boolean | `true` |
-| `fd` | Install fd (fast find replacement) | boolean | `true` |
-| `fzf` | Install fzf (fuzzy finder) | boolean | `true` |
-| `eza` | Install eza (modern ls replacement) | boolean | `true` |
-| `zoxide` | Install zoxide (smart cd replacement) | boolean | `true` |
-| `neovim` | Install neovim | boolean | `true` |
-| `tmux` | Install tmux (terminal multiplexer) | boolean | `true` |
-| `lazygit` | Install lazygit (Git TUI) | boolean | `true` |
-| `astGrep` | Install ast-grep (structural search tool) | boolean | `true` |
-| `jujutsu` | Install jujutsu (jj, next-gen Git-compatible VCS) | boolean | `true` |
-| `zellij` | Install zellij (terminal workspace) | boolean | `false` |
-| `jujutsuVersion` | Version of jujutsu to install | string | `0.38.0` |
-| `ezaVersion` | Version of eza to install | string | `latest` |
-| `lazygitVersion` | Version of lazygit to install | string | `0.59.0` |
-| `astGrepVersion` | Version of ast-grep to install | string | `0.40.5` |
-| `zellijVersion` | Version of zellij to install | string | `0.43.1` |
+Tools: `bat`, `ripgrep`, `fd`, `fzf`, `eza`, `zoxide`, `neovim`, `tmux`, `lazygit`, `astGrep`, `jujutsu`, `zellij`
+
+Additional options: `jujutsuVersion`, `ezaVersion`, `lazygitVersion`, `astGrepVersion`, `zellijVersion`
 
 [Full details](https://github.com/get2knowio/devcontainer-features/tree/main/src/modern-cli-tools)
 
 ### Rust Dev Tools
 
-| Option | Description | Type | Default |
-|--------|-------------|------|---------|
-| `bacon` | Install bacon (cargo build watcher, replaces cargo-watch) | boolean | `true` |
-| `cargoEdit` | Install cargo-edit (cargo add/rm/upgrade) | boolean | `true` |
-| `cargoAudit` | Install cargo-audit (security vulnerability checker) | boolean | `true` |
+Tools: `bacon`, `cargoEdit`, `cargoAudit`
 
 [Full details](https://github.com/get2knowio/devcontainer-features/tree/main/src/rust-dev-tools)
 
 ### GitHub Actions Tools
 
-| Option | Description | Type | Default |
-|--------|-------------|------|---------|
-| `act` | Install act (run GitHub Actions locally) | boolean | `true` |
-| `actionlint` | Install actionlint (GitHub Actions workflow linter) | boolean | `true` |
-| `actVersion` | Version of act to install | string | `0.2.84` |
-| `actionlintVersion` | Version of actionlint to install | string | `1.7.10` |
+Tools: `act`, `actionlint`
+
+Additional options: `actVersion`, `actionlintVersion`
 
 [Full details](https://github.com/get2knowio/devcontainer-features/tree/main/src/github-actions-tools)
 
