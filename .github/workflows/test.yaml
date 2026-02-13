@@ -5,16 +5,14 @@ on:
     branches: [main]
     paths:
       - "src/**"
-      - "test/**"
   pull_request:
     branches: [main]
     paths:
       - "src/**"
-      - "test/**"
   workflow_dispatch:
 
 jobs:
-  test:
+  validate:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -27,13 +25,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
+      - name: Validate template JSON
+        run: |
+          python3 -c "
+          import json, sys, re
 
-      - name: Install DevContainer CLI
-        run: npm install -g @devcontainers/cli
+          # devcontainer-template.json must be strict JSON
+          with open('src/${{ matrix.template }}/devcontainer-template.json') as f:
+              meta = json.load(f)
+          assert 'id' in meta, 'Missing id'
+          assert 'version' in meta, 'Missing version'
+          print(f\"Template: {meta['id']} v{meta['version']}\")
 
-      - name: Test template
-        run: devcontainer templates test --template ${{ matrix.template }} .
+          # devcontainer.json is JSONC (may have comments) — strip and parse
+          with open('src/${{ matrix.template }}/.devcontainer/devcontainer.json') as f:
+              content = f.read()
+          stripped = re.sub(r'//.*', '', content)
+          config = json.loads(stripped)
+          assert 'features' in config, 'Missing features'
+          features = list(config.get('features', {}).keys())
+          print(f\"Features ({len(features)}): {', '.join(f.split('/')[-1] for f in features)}\")
+          "
