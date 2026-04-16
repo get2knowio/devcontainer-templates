@@ -12,7 +12,6 @@ Complete development environment with Python, Node.js, Rust, AI coding assistant
 | [AWS CLI](https://github.com/devcontainers/features/tree/main/src/aws-cli) | Amazon Web Services command-line interface |
 | [GitHub CLI](https://github.com/devcontainers/features/tree/main/src/github-cli) | GitHub's official CLI (`gh`) |
 | [jq-likes](https://github.com/eitsupi/devcontainer-features/tree/main/src/jq-likes) | jq and similar JSON/YAML/TOML processors |
-| [Starship](https://github.com/devcontainers-extra/features/tree/main/src/starship) | Cross-shell prompt |
 
 ### Languages
 
@@ -27,7 +26,7 @@ Complete development environment with Python, Node.js, Rust, AI coding assistant
 | Feature | Description |
 |---------|-------------|
 | [AI CLI Tools](https://github.com/get2knowio/devcontainer-features/tree/main/src/ai-clis) | Claude Code, Gemini CLI, OpenAI Codex, GitHub Copilot, OpenCode, CodeRabbit, Beads, Specify CLI |
-| [Modern CLI Tools](https://github.com/get2knowio/devcontainer-features/tree/main/src/modern-cli-tools) | bat, ripgrep, fd, fzf, eza, zoxide, neovim, tmux, lazygit, ast-grep, jujutsu, zellij |
+| [Modern CLI Tools](https://github.com/get2knowio/devcontainer-features/tree/main/src/modern-cli-tools) | bat, ripgrep, fd, fzf, eza, zoxide, neovim, tmux, lazygit, ast-grep, jujutsu, zellij, starship |
 | [Python Tools](https://github.com/get2knowio/devcontainer-features/tree/main/src/python-tools) | uv, Poetry, ruff, mypy |
 | [Node.js Dev Tools](https://github.com/get2knowio/devcontainer-features/tree/main/src/node-dev-tools) | TypeScript toolchain, Vite, esbuild, Prettier, ESLint, Biome, Bun |
 | [Rust Dev Tools](https://github.com/get2knowio/devcontainer-features/tree/main/src/rust-dev-tools) | bacon, cargo-edit, cargo-audit |
@@ -69,9 +68,9 @@ Tools: `claudeCode`, `geminiCli`, `codex`, `copilot`, `openCode`, `codeRabbit`, 
 
 ### Modern CLI Tools
 
-Tools: `bat`, `ripgrep`, `fd`, `fzf`, `eza`, `zoxide`, `neovim`, `tmux`, `lazygit`, `astGrep`, `jujutsu`, `zellij`
+Tools: `bat`, `ripgrep`, `fd`, `fzf`, `eza`, `zoxide`, `neovim`, `tmux`, `lazygit`, `astGrep`, `jujutsu`, `zellij`, `starship`
 
-Additional options: `jujutsuVersion`, `ezaVersion`, `lazygitVersion`, `astGrepVersion`, `zellijVersion`
+Additional options: `jujutsuVersion`, `ezaVersion`, `lazygitVersion`, `astGrepVersion`, `zellijVersion`, `starshipVersion`
 
 [Full details](https://github.com/get2knowio/devcontainer-features/tree/main/src/modern-cli-tools)
 
