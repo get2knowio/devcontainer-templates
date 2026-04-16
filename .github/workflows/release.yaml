@@ -1,6 +1,10 @@
 name: "Release Dev Container Templates"
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
   workflow_dispatch:
 
 permissions:
